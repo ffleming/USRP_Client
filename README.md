@@ -1,4 +1,3 @@
-
 # USRP_Client (pyUC)
 
 ## Introduction
@@ -70,6 +69,11 @@ reviewed and merged into the master branch.
 ## Related projects
 
 [DVSwitch](https://github.com/DVSwitch)
+
+## Fork information
+
+This is [ffleming's](https://github.com/ffleming) fork of
+[DVSwitch's USRP_Client](https://github.com/DVSwitch/USRP_Client)
 
 ## Licensing
 
