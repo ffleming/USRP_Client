@@ -24,6 +24,7 @@ from time import time, sleep, localtime, strftime
 from random import randint
 from tkinter import messagebox
 import socket
+import sys
 import struct
 import _thread
 import shlex
