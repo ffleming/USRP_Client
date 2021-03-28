@@ -31,6 +31,7 @@ Install instructions by platform:
     * Download PyAudio from https://www.lfd.uci.edu/~gohlke/pythonlibs/ for your version (32 or 64 bit)
     * `pip install PyAudio-0.2.11-cp37-cp37m-win_XXX.whl`
     * `pip install bs4 Pillow requests`
+    * Copy pyUC.ini.sample to pyUC.ini
     * Edit pyUC.ini
     * If you get an error about MSVCP140.DLL, then you will need to install the
     [MSVC C++ runtime library.](Get it from: https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads)
@@ -39,6 +40,7 @@ Install instructions by platform:
     * `sudo apt-get install python3-pyaudio`
     * `sudo apt-get install portaudio19-dev`
     * `sudo apt-get install python3-pil.imagetk`
+    * Copy pyUC.ini.sample to pyUC.ini
     * Edit pyUC.ini
 * Mac
     * Install [Homebrew](http://brew.sh)
@@ -58,6 +60,7 @@ Install instructions by platform:
             --global-option='-L$HOMEBREW_PATH/lib' pyaudio
           ```
     * `pip3 install bs4 Pillow requests`
+    * Copy pyUC.ini.sample to pyUC.ini
     * Edit pyUC.ini
 
 ## Contributing
