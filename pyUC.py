@@ -42,8 +42,9 @@ import queue
 from pathlib import Path
 import hashlib
 from tkinter import font
+import sys
 
-UC_VERSION = "1.2.2"
+UC_VERSION = "1.2.3"
 
 ###################################################################################
 # Declare input and output ports for communication with AB
@@ -463,6 +464,7 @@ def rxAudioStream():
                 if (audio[0:4] == REG):
                     if (audio[4:6] == OK):
                         connected_msg.set(STRING_REGISTERED)
+                        sendMetadata()
                         requestInfo()
                         if in_index == -1:
                             transmitButton.configure(state='disabled')
@@ -762,8 +764,11 @@ def requestInfo():
 # 
 ###################################################################################
 def sendMetadata():
-    metadata = ""
-    sendRemoteControlCommandASCII(metadata)
+    dmr_id = subscriber_id.get()
+    call = bytes(my_call, 'ASCII')+bytes(chr(0), 'ASCII')
+    tlvLen = 3 + 4 + 3 + 1 + 1 + len(my_call) + 1                      # dmrID, repeaterID, tg, ts, cc, call, 0
+    cmd = struct.pack("BBBBBBBBBBBBBB", TLV_TAG_SET_INFO, tlvLen, ((dmr_id >> 16) & 0xff),((dmr_id >> 8) & 0xff),(dmr_id & 0xff),0,0,0,0,0,0,0,0,0)[0:14] + call
+    sendUSRPCommand(cmd, USRP_TYPE_TEXT)
 
 ###################################################################################
 # Set the size (number of bits) of each AMBE sample
